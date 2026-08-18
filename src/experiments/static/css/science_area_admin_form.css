@@ -1,0 +1,62 @@
+#sciencearea_form > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 8px;
+}
+
+#sciencearea_form > div > fieldset[aria-labelledby="fieldset-0-0-heading"]  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 2;
+}
+
+#sciencearea_form > div > #experimenttosciencearea_set-group {
+    flex: 1;
+}
+
+#sciencearea_form > div > .submit-row {
+    flex-basis: 100%;
+}
+
+#fieldset-0-0-heading {
+    flex-basis: 100%;
+}
+
+#sciencearea_form > div > fieldset[aria-labelledby="fieldset-0-0-heading"] .field-area_code {
+    /* flex: 1; */
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+#sciencearea_form > div > fieldset[aria-labelledby="fieldset-0-0-heading"] .field-area_name {
+    flex: 3;
+}
+
+#sciencearea_form > div > fieldset[aria-labelledby="fieldset-0-0-heading"] .field-description {
+    flex-basis: 100%;
+}
+
+#id_area_code {
+    width: 15%;
+}
+
+.field-area_name .flex-container {
+    width: fit-content;
+    /* margin-left: auto; */
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+
+/* #id_area_name {
+    width: ;
+} */
+
+

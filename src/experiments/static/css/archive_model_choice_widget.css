@@ -1,0 +1,474 @@
+div:has(> #id_experiment-outer-container) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#id_experiment-outer-container, #id_procedure_step-outer-container, #id_author-outer-container {
+    flex-basis: 100%;
+}
+
+#id_experiment-outer-container:not(.hidden):has(~ #id_procedure_step-outer-container:not(.hidden)) {
+    flex: 1;
+    flex-basis: auto;
+}
+
+#id_experiment-outer-container:not(.hidden) ~ #id_procedure_step-outer-container:not(.hidden) {
+    flex: 1;
+    flex-basis: auto;
+}
+
+.archive-select {
+    width: 100%;
+    position: relative; /*ADICIONADO EM M.1*/
+}
+
+div:has(> .archive-search-container-popover) {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: -9px; /*HOW MAKE THIS "DINAMIC RESPONSIVE"*/
+}
+
+.archive-search-container-popover {
+    /* position: relative; */
+    width: 100%; /*ADICIONADO EM M.1*/
+    /* z-index: -1; */
+    transform: translateY(-400px);
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 1px solid #777 !important;
+    margin-top: 13px; /*HOW MAKE THIS "DINAMIC RESPONSIVE"*/
+}
+
+.archive-search-container-popover-down {
+    animation: down-display 250ms ease forwards;
+}
+
+.archive-search-container-popover-up {
+    animation: up-display 250ms ease forwards;
+}
+
+@keyframes down-display {
+    0% {
+        transform: translateY(-400px);
+    }
+
+    70% {
+        transform: translateY(6px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes up-display {
+    0% {
+        transform: translateY(0px);
+    }
+
+    70% {
+        transform: translateY(-410px);
+    }
+
+    100% {
+        transform: translateY(-400px);
+        display: none;
+    }
+}
+
+.archive-search-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 6px;
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 300px; /* CHECK THIS LITERAL SIZE */
+    overflow-y: hidden;
+}
+
+.archive-search-option {
+    background-color: transparent;
+    box-sizing: border-box;
+    display: block;
+    border: 0;
+    width: 100%;
+    padding: 13px 8px;
+    border-radius: 6px;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.archive-search-option:hover {
+    background-color: #3b3b3b !important;
+}
+
+.archive-search-option-outer-span {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    row-gap: 0.8vh;
+}
+
+/* existe um erro no na renderização da classe no span do none-item */
+.archive-search-none-item {
+    display: none;
+}
+
+span:has(> span[name="experiment-name"]), span:has(> span[name="author-name"]), span:has(> span[name="proedure_step-name"]) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+span[name="experiment-name"], span[name="author-name"], span[name="procedure_step-name"] {
+    font-weight: 600;
+    font-size: 16px;
+    text-align: start;
+    line-height: 1;
+    color: #dfdfdf;
+}
+
+span[name="experiment-is-visible"], span[name="experiment-is-ipt"] {
+    padding: 4px 8px;
+    font-weight: 500;
+    font-size: 11px;
+    border-radius: 6px;
+    text-align: center;
+    color: rgb(206, 255, 206);
+    vertical-align: middle;
+}
+
+span[name="experiment-is-visible"] {
+    background-color: rgb(49 89 49);
+    color: rgb(206, 255, 206);
+    margin-left: 10px;
+}
+
+span[name="experiment-is-ipt"] {
+    background-color: #205067;
+    color: #82a5b5;
+    margin-left: 5px;
+}
+
+span[name="experiment-science-area"], span[name="experiment-difficult"] {
+    font-weight: 400;
+    font-size: 13px;
+    color: #dfdfdf;
+    line-height: 1;
+}
+
+span[name="experiment-difficult"] {
+    background-color: #494949;
+    border-radius: 8px;
+    padding: 4px 6px;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+span[name="experiment-created-at"], span[name="experiment-uptated-at"] {
+    font-size: 10px;
+    color: #dfdfdf;
+    font-weight: 400;
+}
+
+.archive-search-input {
+    width: 100%;
+    background-color: #373737 !important;
+    box-sizing: border-box;
+    padding: 13px !important;
+    outline: none;
+    border: 1px solid #7777775c !important;
+    color: #bbb !important;
+    border-radius: 8px !important;
+}
+
+div:has(> .archive-search-input) {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    column-gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+div:has(> .archive-search-input) > svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #373737;
+    padding: 13px;
+    border: 1px solid #7777775c;
+    border-radius: 8px;
+    color: #7777775c;
+}
+
+#id_experiment .archive-search-selected-option, 
+#id_author .archive-search-selected-option, 
+#id_procedure_step .archive-search-selected-option {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #2d2d2d;
+    border: 1px solid #777777 !important;
+    border-radius: 8px !important;
+    outline: none;
+    color: #bbb;
+    /* margin-bottom: 4px; */
+}
+
+.archive-search-option-click {
+    animation: down-click 300ms ease-in forwards
+}
+
+@keyframes down-click {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    40% {
+        transform: translateX(1px) translateY(1px);
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+#id_experiment .archive-search-selected-option > span[name="selected-experiment"],
+#id_author .archive-search-selected-option > span[name="selected-author"],
+#id_author .archive-search-selected-option > span[name="selected-author"]:has(> span[name="no-item-selected"]) ,
+#id_procedure_step .archive-search-selected-option > span[name="selected-procedure_step"] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 8px;
+    text-align: left;
+    row-gap: 6px;
+}
+
+#id_experiment .archive-search-selected-option > span[name="selected-experiment"] > span:nth-child(1),
+#id_author .archive-search-selected-option > span[name="selected-author"] > span:nth-child(1),
+#id_procedure_step .archive-search-selected-option > span[name="selected-procedure_step"] > span:nth-child(1) {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    color: #dfdfdf;
+}
+
+#id_experiment .archive-search-selected-option > span[name="selected-experiment"] > span:nth-child(2) {
+    min-width: 10px;
+    min-height: 10px;
+    opacity: 0.7;
+}
+
+.archive-search-dropdown-icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(180deg);
+    margin-right: 10px;
+}
+
+.archive-search-dropdown-icon > svg{
+    color: #dfdfdf;
+    width: 25px;
+    height: 25px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 200ms ease-in;
+}
+
+.rotate-180deg-icon {
+    animation: rotate-180deg-icon 250ms ease-out forwards;
+}
+
+.inverse-rotate-180deg-icon {
+    animation: inverse-rotate-180deg-icon 250ms ease-out forwards;
+}
+
+@keyframes rotate-180deg-icon {
+    0% {
+      transform: rotate(0deg);  
+    }
+
+    70% {
+        transform: rotate(200deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes inverse-rotate-180deg-icon {
+    0% {
+        transform: rotate(180deg);
+    }
+
+    70% {
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.float-container-tag {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: color-mix(
+        in srgb, var(--red-bg-option) var(--glass-effect-percent), transparent);
+    border-radius: 10px;
+    margin: 0;
+    padding: 8px 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid color-mix(
+        in srgb,
+        rgb(255 140 152) 35%,
+        transparent
+    );
+}
+
+#id_float-tag-classification-archive {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    line-height: 1;
+    vertical-align: middle;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--red-option-primary);
+}
+
+div:has(> .float-container-tag) {
+    position: relative;
+    min-width: 0;
+    width: 100%;
+    margin-top: 12px;
+}
+
+div:has(> .float-container-tag) > p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+span[name="no-item-selected"] {
+    padding: 6px 0px;
+}
+
+.archive-search-option-outer-span > img {
+    width: 12%;
+    height: 16%;
+    background-color: #373737;
+    padding: 6px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid #7777775c !important;
+}
+
+button[data-option-type="author"] .archive-search-option-outer-span {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    column-gap: 8px;
+}
+
+button[data-option-type="author"] .archive-search-option-outer-span > span {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    background-color: #373737;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #7777775c !important;
+    width: 100%;
+}
+
+button[data-option-type="author"] .archive-search-option-outer-span > span :nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 6px;
+}
+
+button[data-option-type="author"] .archive-search-option-outer-span > span :nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    column-gap: 8px;
+}
+
+button[data-option-type="author"] .archive-search-option-outer-span > span :nth-child(2) * {
+    font-size: 12px;
+    color: #dfdfdf82;
+    font-weight: 400;
+}
+
+span[name="selected-author"]:not(:has(span[name="no-item-selected"])) {
+    display: grid !important;
+    grid-template-columns: 10% auto;
+    justify-content: start !important;
+    grid-template-areas: 
+        "image name"
+        "image editor";
+    column-gap: 0.75rem;
+    align-items: center !important;
+}
+
+span[name="selected-author"] span[name="author-name"] {
+    grid-area: name;
+}
+
+span[name="selected-author"] span[name="author-body"] {
+    display: contents;
+}
+
+span[name="selected-author"] img {
+    display: inline-block;
+    width: 100%;
+    aspect-ratio: 3/4;
+    grid-area: image;
+    object-fit: cover;
+}
+
+span[name="selected-author"] span[name="author-is-editor"] {
+    grid-area: editor;
+}

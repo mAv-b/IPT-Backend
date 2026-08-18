@@ -1,0 +1,72 @@
+/* body {
+    overflow: hidden;
+} */
+
+.field-author_picture .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+}
+
+.field-author_picture .flex-container > label {
+    padding: 0;
+    margin: 0;
+}
+
+.form-row {
+    width: auto;
+}
+
+#author_form > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    column-gap: 8px;
+}
+
+#author_form > div > fieldset:nth-of-type(1){
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+#author_form > div > fieldset:nth-of-type(1) > .field-is_editor {
+    margin-top: auto;
+}
+
+#author_form > div > fieldset:nth-of-type(2) {
+    flex: 1;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#author_form > div .submit-row {
+    flex-basis: 100%;
+}
+
+#id_input-image_helptext {
+    margin: 0;
+    padding: 0;
+}
+
+#experimenttoauthor_set-group {
+    margin: 0;
+    margin-top: 15px;
+}
+
+#experimenttoauthor_set-group .wrapper {
+    height: 150px;
+    overflow-y: auto;
+}
+
+#experimenttoauthor_set-group .wrapper > table {
+    border-collapse: collapse;
+}

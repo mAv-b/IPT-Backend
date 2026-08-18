@@ -1,0 +1,77 @@
+.inline-related h3 span.delete {
+    margin-top: 8px;
+}
+
+#experimenttosciencearea_set-group > fieldset > details {
+    overflow-y: auto;
+    height: 300px;
+    position: relative;
+}
+
+#experimenttosciencearea_set-group > fieldset > details .add-row {
+    position: sticky;
+    bottom: 0;
+}
+
+#experimenttosciencearea_set-group > fieldset .dynamic-experimenttosciencearea_set:nth-child(even) {
+    background-color: var(--darkened-bg);
+}
+
+#experimenttosciencearea_set-group > fieldset .dynamic-experimenttosciencearea_set > *{
+    background-color: #ffffff00;
+} 
+
+.dynamic-experimenttosciencearea_set > fieldset {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.dynamic-experimenttosciencearea_set > h3 {
+    margin: 0 !important;
+    padding-top: 8px;
+}
+
+.dynamic-experimenttosciencearea_set > fieldset > .field-experiment {
+    flex-basis: 100%;
+}
+
+.dynamic-experimenttosciencearea_set > fieldset > .field-created_at,
+.dynamic-experimenttosciencearea_set > fieldset > .field-updated_at {
+    flex: 1;
+}
+
+.dynamic-experimenttosciencearea_set > fieldset > .field-created_at .flex-container,
+.dynamic-experimenttosciencearea_set > fieldset > .field-updated_at .flex-container {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    gap: 8px;
+}
+
+.dynamic-experimenttosciencearea_set > fieldset > .field-created_at .flex-container > *,
+.dynamic-experimenttosciencearea_set > fieldset > .field-updated_at .flex-container > * {
+    flex: 1;
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    font-size: 10px;
+}
+
+.dynamic-experimenttosciencearea_set > fieldset > .field-experiment .flex-container .related-widget-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0px !important;
+    flex-grow: 0 !important;
+    justify-content: flex-end;
+}
+
+.dynamic-experimenttosciencearea_set > fieldset > .field-experiment .flex-container .related-widget-wrapper > select {
+    order: 1;
+    flex: 1;
+}
+
+.dynamic-experimenttosciencearea_set > fieldset > .field-experiment .flex-container .related-widget-wrapper > a {
+    scale: 0.7;
+}

@@ -1,0 +1,384 @@
+.playfair-display-regular {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.inter-regular {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.inter-semibold {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom left;
+    background-attachment: fixed;
+
+    user-select: none;
+
+    --primary-color: #23272C;
+    --primary-color-dark: #DEDEDE;
+    --color-main-div-light: #e9e9e9cc;
+    --color-main-div-dark: #23272cd3;
+    --color-header-light: #F9F9F9;
+    --color-header-dark: #3D3D3D;
+    --color-submit-login-light: #C8C8C8;
+    --color-submit-login-dark: #363636;
+}
+
+:root[data-theme="light"] {
+    background-image: url("/static/images/background-light-theme-without-ipt-logo.svg");
+}
+
+:root[data-theme="dark"] {
+    background-image: url("/static/images/background-dark-theme-without-ipt-logo.svg");
+}
+
+:root[data-theme="auto"] {
+    background-image: url("/static/images/background-dark-theme-without-ipt-logo.svg");
+}
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+#ipt-logo {
+    position: absolute;
+    bottom: -13%;
+    right: -5%;
+    background-size: contain;
+    width: 350px;
+    height: 350px;
+    display: block;
+}
+
+:root[data-theme="light"] #ipt-logo{
+    background-image: url("/static/images/IPT-Vector-background-light.svg");
+}
+
+:root[data-theme="dark"] #ipt-logo{
+    background-image: url("/static/images/IPT-Vector-background-dark.svg");
+}
+
+:root[data-theme="auto"] #ipt-logo{
+    background-image: url("/static/images/IPT-Vector-background-dark.svg");
+}
+
+.login {
+    background: #ffffff00 !important;
+    width: 100%;
+    height: 100% !important;
+    overflow: hidden;
+}
+
+.login #container {
+    margin: 0 !important;
+    height: 100% !important;
+    width: 25% !important;
+    border: 0px !important;
+    border-radius: 0px !important;
+    box-shadow: #00000059 3px 3px 4px;
+}
+
+:root[data-theme="light"] .login #container {
+    background-color: var(--color-main-div-light);
+}
+
+:root[data-theme="dark"] .login #container {
+    background-color: var(--color-main-div-dark);
+}
+
+:root[data-theme="auto"] .login #container {
+    background-color: var(--color-main-div-dark);
+}
+
+#header {
+    width: 70% !important;
+    margin-top: 18px !important;
+    padding-left: 28px !important;
+    box-shadow: #00000059 3px 2px 4px;
+}
+
+:root[data-theme="light"] #header {
+    background-color: var(--color-header-light);
+}
+
+:root[data-theme="dark"] #header {
+    background-color: var(--color-header-dark);
+}
+
+:root[data-theme="auto"] #header {
+    background-color: var(--color-header-dark);
+}
+
+#branding {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#header #site-name a {
+    font-size: 40px;
+    /* text-shadow: #00000038 2px 2px 2px; */
+}
+
+:root[data-theme="light"] #header #site-name a {
+    color: var(--primary-color);
+}
+
+:root[data-theme="dark"] #header #site-name a {
+    color: var(--primary-color-dark)
+}
+
+:root[data-theme="auto"] #header #site-name a {
+    color: var(--primary-color-dark)
+}
+
+.theme-toggle {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 50px;
+    border-radius: 10000px;
+    background-color: var(--primary-color);
+    box-shadow: #000 2px 2px 3px inset;
+}
+
+.theme-icon-when-light, .theme-icon-when-dark, .theme-icon-when-auto {
+    /* opacity: 0 !important; */
+    box-sizing: border-box !important;
+    border-radius: 10000px;
+    margin-left: 4px;
+    padding: 3px;
+    color: #ff000000 !important;
+}
+
+#id_username, #id_password {
+    box-shadow: #0000003d 2px 2px 2px inset;
+    border: 0px !important;
+    /* width: 10% !important; */
+}
+
+:root[data-theme="light"] #id_username, :root[data-theme="light"] #id_password {
+    background-color: var(--color-header-light);
+}
+
+:root[data-theme="dark"] #id_username, :root[data-theme="dark"] #id_password {
+    background-color: var(--color-header-dark);
+}
+
+:root[data-theme="auto"] #id_username, :root[data-theme="auto"] #id_password {
+    background-color: var(--color-header-dark);
+}
+
+#inner-form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.form-row, .submit-row {
+    width: 75%;
+}
+
+.form-row label {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root[data-theme="light"] .form-row label {
+    color: var(--primary-color);
+}
+
+:root[data-theme="dark"] .form-row label {
+    color: var(--primary-color-dark);
+}
+
+:root[data-theme="auto"] .form-row label {
+    color: var(--primary-color-dark);
+}
+
+.submit-row {
+    position: relative;
+}
+
+#id_submit_login {
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    box-shadow: #0000005b 2px 2px 3px;
+    padding: 10px 20px;
+}
+
+:root[data-theme="light"] #id_submit_login {
+    background-color: var(--color-submit-login-light);
+    color: var(--primary-color);
+}
+
+:root[data-theme="dark"] #id_submit_login {
+    background-color: var(--color-submit-login-dark);
+    color: var(--primary-color-dark);
+}
+
+:root[data-theme="auto"] #id_submit_login {
+    background-color: var(--color-submit-login-dark);
+    color: var(--primary-color-dark)
+}
+
+:root[data-theme="light"] #id_submit_login:hover {
+    background-color: var(--primary-color);
+    color: var(--color-submit-login-light);
+}
+
+:root[data-theme="dark"] #id_submit_login:hover {
+    background-color: var(--color-submit-login-light);
+    color: var(--primary-color);
+}
+
+:root[data-theme="auto"] #id_submit_login:hover {
+    background-color: var(--color-submit-login-light);
+    color: var(--primary-color);
+}
+
+#content-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#container-logos {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+    padding-bottom: 10%;
+}
+
+#container-logos img {
+    width: 35%;
+    height: 100%;
+}
+
+#ipt-container-title {
+    border: 5px solid;
+    position: absolute;
+    right: 0;
+    margin: 1.5%;
+    padding: 0px 18px;
+    padding-right: 60px;
+}
+
+:root[data-theme="light"] #ipt-container-title, :root[data-theme="light"] #ipt-container-title h1 {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+:root[data-theme="dark"] #ipt-container-title, :root[data-theme="dark"] #ipt-container-title h1 {
+    border-color: var(--primary-color-dark);
+    color: var(--primary-color-dark);
+}
+
+:root[data-theme="auto"] #ipt-container-title, :root[data-theme="auto"] #ipt-container-title h1 {
+    border-color: var(--primary-color-dark);
+    color: var(--primary-color-dark)
+}
+
+#ipt-container-title h1 {
+    color: var(--primary-color);
+    margin: 0 !important;
+    font-size: 48px;
+    line-height: 1;
+}
+
+#container {
+    position: static !important;
+}
+
+.errornote {
+    position: fixed;
+    bottom: 0px;
+    right: 0;
+    width: 30%;
+    margin-right: 18px;
+    margin-bottom: 18px;
+    animation: showup 0.5s ease-out forwards;
+    z-index: 10;
+}
+
+@keyframes showup {
+    0% {
+        transform: translateY(100px);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.icon-move-0 {
+    transform: translateX(0%) !important;
+    animation: moveicon0 0.5s ease-in forwards;
+}
+
+.icon-move-1 {
+    transform: translateX(100%) !important;
+    animation: moveicon1 0.5s ease-in forwards;
+}
+
+.icon-move-2 {
+    animation: moveicon2 0.5s ease-in forwards;
+}
+
+@keyframes moveicon0 {
+    0% {
+        transform: translateX(0%) !important;
+    }
+
+    100% {
+        transform: translateX(100%) !important;
+    }
+}
+
+@keyframes moveicon1 {
+    0% {
+        transform: translateX(100%) !important;
+    }
+
+    100% {
+        transform: translateX(0%) !important;
+    }
+}
+
+@keyframes moveicon2 {
+    0% {
+        transform: translateX(50%) !important;
+    }
+
+    100% {
+        transform: translateX(0%) !important;
+    }
+}
+

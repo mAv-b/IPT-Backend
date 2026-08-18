@@ -9,7 +9,7 @@ colors.txt
 
 db.sqlite3
 media/
-static/
+# static/
 *.log
 
 __pycache__

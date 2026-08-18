@@ -1,0 +1,43 @@
+/* --body-bg for background color */
+
+:root {
+    --glass-effect: 0.18;
+    --glass-effect-final: 0.08;
+    --glass-effect-percent: 18%;
+    --glass-effect-final-percent: 8%;
+    --red-option-primary: rgb(255,70, 90);
+    --red-option-second: rgb(130,70, 25);
+    --red-bg-option: rgb(180, 20, 40);
+}
+
+:root[data-theme="dark"] {
+    --archive-classification-option-bg: #1a1a1a;
+    /* --archive-classification-option-bg: #121212; same the bg-dark*/
+    --archive-classification-option-border-color: #777;
+    --archive-classification-option-border-color-hover: #ddd;
+}
+
+:root[data-theme="light"] {
+    --archive-classification-option-bg: #fafafa;
+    /* --archive-classification-option-bg: #fff; same the bg-white */
+    --archive-classification-option-border-color: #b9b9b9;
+    --archive-classification-option-border-color-hover: #000000;
+    --glass-effect-percent: 26%;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-row.field-experiment.field-procedure_step.field-author {
+    overflow: visible !important;
+
+}
+
+.form-row.field-experiment.field-procedure_step.field-author > .form-multiline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    row-gap: 5vh;
+}
