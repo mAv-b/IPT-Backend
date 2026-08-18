@@ -1,0 +1,62 @@
+<button value="{{ widget.value|stringformat:'s' }}"{% include "django/forms/widgets/attrs.html" %}>
+    {% if widget.name == "experiment" %}
+        {% if not widget.experiment_name %}
+            <span name="no-item-selected">{{widget.label}}</span>
+        {% else %}
+            <span class="{{widget.attrs.class}}-outer-span">
+                <span>
+                    <span name="experiment-name">{{ widget.experiment_name }}</span>
+                    <span name="experiment-is-visible">{% if widget.experiment_is_visible %}Visible{% else %}Not Visible{% endif %}</span>
+                    <span name="experiment-is-ipt">{% if widget.experiment_is_ipt %}IPT{% else %}Non IPT{% endif %}</span>
+                </span>
+                <span>
+                    {% if widget.experiment_science_area is not None %}
+                        {% for science_area in widget.experiment_science_area %}]
+                            <span name="experiment-science-area">{{science_area.area_code}}</span>
+                        {% endfor %}
+                    {% else %}
+                        <span name="experiment-science-area">{{ widget.experiment_science_area }}</span>
+                    {% endif %}
+                    <span name="experiment-difficult">{{ widget.experiment_difficult }}</span>
+                </span>
+                <span>
+                    <span name="experiment-created-at">Created at {{ widget.created_at }}</span>
+                    <span name="experiment-uptated-at">&middot; Updated {{widget.updated_at}}</span>
+                </span>
+            </span>
+        {% endif %}
+    {% elif widget.name == "author" %}
+        {% if not widget.author_name %}
+            <span name="no-item-selected">{{ widget.label }}</span>
+        {% else %}
+            <span class="{{widget.attrs.class}}-outer-span">
+                <img alt="author's picture" draggable="false" src="{{ widget.author_picture }}"/>
+                <span>
+                    <span>
+                        <span name="author-name">{{ widget.author_name }}</span>
+                        <span name="author-is-editor" class="{% if not widget.author_is_editor %}hidden{% endif %}">{% if widget.author_is_editor %}Editor{% else %}Non Editor{% endif %}</span>
+                    </span>
+                    <span>
+                        <span name="author-created-at">Created At {{ widget.created_at }}</span>
+                        <span name="author-updated-at">Updated At {{ widget.updated_at }}</span>
+                    </span>
+                </span>
+            </span>
+        {% endif %}
+    {% elif widget.name == "procedure_step" %}
+        {% if not widget.step_name %}
+            <span name="no-item-selected">{{widget.label}}</span>
+        {% else %}
+            <span class="{{ widget.attrs.class }}-outer-span">
+                <span name="procedure_step-name">{{ widget.step_name }}</span>
+                <span name="procedure_step-experiment">{{ widget.experiment.experiment_name }}</span>
+                <span>
+                    <span name="procedure_step-created_at">Created At {{ widget.created_at }}</span>
+                    <span name="procedure_step-updated_at">Updated At {{ widget_updated_at }}</span>
+                </span>
+            </span>
+        {% endif %}
+    {% else %}
+        {{widget.label}}
+    {% endif %}
+</button>

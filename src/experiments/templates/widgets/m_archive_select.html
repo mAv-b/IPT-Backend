@@ -1,0 +1,114 @@
+<div name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+  <select class="hidden" name="{{ widget.name }}">{% for group_name, group_choices, group_index in widget.optgroups %}{% if group_name %}
+  <optgroup label="{{ group_name }}">{% endif %}{% for option in group_choices %}
+  {% include default_option_template with widget=option %}{% endfor %}{% if group_name %}
+  </optgroup>{% endif %}{% endfor %}
+  </select>
+
+  <button {% include "django/forms/widgets/attrs.html" with widget=archive_selected_option %}>
+    {% if widget.name == "experiment" %}
+      <span name="selected-experiment">
+        {% if widget.current_data %}
+          <span name="experiment-name">
+            {{widget.current_data.name}}
+          </span>
+          <span name="experiment-body">
+            {% if widget.current_data.body.science_areas %}
+              {% for science_area_code in widget.current_data.body.science_areas %}
+                <span name="area-code">{{science_area_code}}</span>
+              {% endfor %}
+            {% else %}
+              <span name="no-area-code">No Areas</span>
+            {% endif %}
+          </span>
+        {% else %}
+          <span name="no-item-selected">{{widget.empty_label}}</span>
+        {% endif %}
+        <span active class="archive-search-dropdown-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 9L12 15L18 9" />
+          </svg>
+        </span>
+      </span>
+    {%endif%}
+    {% if widget.name == "author" %}
+      <span name="selected-author">
+        {% if widget.current_data %}
+          <span name="autor-name">
+            {{ widget.current_data.name }}
+          </span>
+          <span name="author-body">
+            <img src="{{ widget.current_data.body.author_picture }}" alt="{{ widget.current_data.name }}'s photo" />
+            <span name="author-is-editor">
+              {% if widget.current_data.body.is_editor %}
+                Editor
+              {% else %}
+                Non Editor
+              {% endif %}
+            </span>
+          </span>
+        {% else %}
+          <span name="no-item-selected">{{ widget.empty_label }}</span>
+        {% endif %}
+        <span active class="archive-search-dropdown-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 9L12 15L18 9" />
+          </svg>
+        </span>
+      </span>
+    {% endif %}
+    {% if widget.name == "procedure_step" %}
+      <span name="selected-procedure_step">
+      {% if widget.current_data.name %}
+        <span name="procedure_step-name">{{ widget.current_data.name }}</span>
+        <span name="procedure_step-body">
+          <span name="procedure_step-experiment">{{ widget.current_data.body.experiment }}</span>
+          <span name="procedure_step-order">{{widget.current_data.body.order}}</span>
+        </span>
+      {% else %}
+        <span name="no-item-selected">{{ widget.empty_label }}</span>
+      {% endif %}
+        <span active class="archive-search-dropdown-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 9L12 15L18 9" />
+          </svg>
+        </span>
+      </span>
+    {% endif %}
+  </button>
+  <div>
+    <div {% include "django/forms/widgets/attrs.html" with widget=archive_search_list_container %}>
+      <div>
+        <svg
+          viewBox="0 0 24 24"
+          width="18"
+          height="18"
+          aria-hidden="true"
+  >
+          <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              d="M21 21l-4.35-4.35M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+          />
+        </svg>
+        <input placeholder="Search here..." {% include "django/forms/widgets/attrs.html" with widget=archive_search_input %} />
+      </div>
+
+      <div {% include "django/forms/widgets/attrs.html" with widget=archive_search_list %}>
+        {% for group_name, group_choices, group_index in widget.optgroups %}
+          {% if group_name %}
+            <div class="{{ widget.class_group_container }}" label="{{ group_name }}" {% include "django/forms/widgets/attrs.html" with widget=search_group_container %}>
+          {% endif %}
+          {% for option in group_choices %}
+            {% include option.template_name with widget=option %}
+          {% endfor %}
+          {% if group_name %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

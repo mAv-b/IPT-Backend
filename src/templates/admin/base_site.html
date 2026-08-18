@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+
+{% block extrastyle %}
+  {{ block.super }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+  href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+  rel="stylesheet">
+  <!-- <link rel="stylesheet" href="{% static 'css/admin/base_site.css' %}"> -->
+  <link rel="stylesheet" href="{% static 'css/admin/base_site_2.css' %}" />
+  
+  <!-- <script src="{% static 'js/theme.js' %}"></script> -->
+  
+{% endblock %}
+
+{% block ipt-logo %}
+<div id="ipt-logo"></div>
+{% endblock %}
+
+{% block ipt-title %}
+<div id="ipt-container-title">
+  <h1 class="playfair-display-regular">IPT</h1>
+  <h1 class="playfair-display-regular">Unicamp</h1>
+  <h1 class="playfair-display-regular">Gestão</h1>
+</div>
+{% endblock %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('IPT Admin Site') }}{% endblock %}
+
+{% block branding %}
+<div id="site-name"><a class="playfair-display-regular" href="{% url 'admin:index' %}">{{ site_header|default:_('IPT Admin Site') }}</a></div>
+{% if user.is_anonymous %}
+{% include "admin/color_theme_toggle.html" %}
+{% endif %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block logos %}
+<div id="container-logos">
+  <img draggable="false" src="{% static 'images/Unicamp-Logo.svg' %}" alt="unicamp-logo">
+  <img draggable="false" src="{% static 'images/IFGW-logo.svg' %}" alt="ifgw-logo"/>
+</div>
+{% endblock %}
